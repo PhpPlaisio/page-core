@@ -1,0 +1,33 @@
+{
+  "name": "setbased/abc-page-core",
+  "description": "ABC Framework: Core Page",
+  "keywords": [
+    "framework",
+    "core",
+    "page"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": ">=7.0.0",
+    "setbased/abc": "^0.9.13",
+    "setbased/abc-page": "^0.9.0"
+  },
+  "require-dev": {
+    "phing/phing": "^2.0.0",
+    "phpunit/phpunit": "^6.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "SetBased\\Abc\\Page\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "SetBased\\Abc\\Page\\Test\\": "test"
+    }
+  },
+  "config": {
+    "bin-dir": "bin"
+  }
+}
