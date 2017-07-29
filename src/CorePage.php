@@ -7,7 +7,6 @@ use SetBased\Abc\Error\InvalidUrlException;
 use SetBased\Abc\Helper\Html;
 use SetBased\Abc\Helper\Url;
 
-//----------------------------------------------------------------------------------------------------------------------
 /**
  * Abstract parent class for all pages.
  */
@@ -22,25 +21,11 @@ abstract class CorePage implements Page
   protected $cmpId;
 
   /**
-   * The keywords to be included in a meta tag for this page.
-   *
-   * var string[]
-   */
-  protected $keywords = [];
-
-  /**
    * The preferred language (lan_id) of the page requester.
    *
    * @var int
    */
   protected $lanId;
-
-  /**
-   * The attributes of the meta elements of this page.
-   *
-   * @var array[]
-   */
-  protected $metaAttributes = [];
 
   /**
    * The profile ID (pro_id) of the page requestor.
@@ -348,77 +333,6 @@ abstract class CorePage implements Page
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Adds a meta element to this page.
-   *
-   * {@deprecated}
-   *
-   * @param array $attributes The attributes of the meta element.
-   */
-  public function metaAddElement($attributes)
-  {
-    $this->metaAttributes[] = $attributes;
-  }
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * Adds a keyword to the keywords to be included in the keyword meta element of this page.
-   *
-   * {@deprecated}
-   *
-   * @param string $keyword The keyword.
-   */
-  public function metaAddKeyword($keyword)
-  {
-    $this->keywords[] = $keyword;
-  }
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * Adds keywords to the keywords to be included in the keyword meta element of this page.
-   *
-   * {@deprecated}
-   *
-   * @param string[] $keywords The keywords.
-   */
-  public function metaAddKeywords($keywords)
-  {
-    $this->keywords = array_merge($this->keywords, $keywords);
-  }
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * {@deprecated}
-   *
-   * @param string $pageTitleAddendum
-   */
-  protected function appendPageTitle($pageTitleAddendum)
-  {
-    Abc::getInstance()->appendPageTitle($pageTitleAddendum);
-  }
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * Echos the meta tags within the HTML document.
-   *
-   * {@deprecated}
-   */
-  protected function echoMetaTags()
-  {
-    if (!empty($this->keywords))
-    {
-      $this->metaAttributes[] = ['name' => 'keywords', 'content' => implode(',', $this->keywords)];
-    }
-
-    $this->metaAttributes[] = ['charset' => Html::$encoding];
-
-    foreach ($this->metaAttributes as $metaAttribute)
-    {
-      echo Html::generateVoidElement('meta', $metaAttribute);
-    }
-  }
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
    * Echos the XHTML document leader, i.e. the start html tag, the head element, and start body tag.
    */
   protected function echoPageLeader()
@@ -430,10 +344,10 @@ abstract class CorePage implements Page
     echo '<head>';
 
     // Echo the meta tags.
-    $this->echoMetaTags();
+    Abc::$assets->echoMetaTags();
 
     // Echo the title of the XHTML document.
-    echo '<title>', Html::txt2Html(Abc::getInstance()->getPageTitle()), '</title>';
+    Abc::$assets->echoPageTitle();
 
     // Echo style sheets (if any).
     Abc::$assets->echoCascadingStyleSheets();
@@ -470,31 +384,9 @@ abstract class CorePage implements Page
    *
    * @return string
    */
-  protected function getPageTitle()
-  {
-    return Abc::getInstance()->getPageTitle();
-  }
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * {@deprecated}
-   *
-   * @return string
-   */
   protected function getPtbId()
   {
     return Abc::getInstance()->getPtbId();
-  }
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * {@deprecated}
-   *
-   * @param string $pageTitle The new title of the page.
-   */
-  protected function setPageTitle($pageTitle)
-  {
-    Abc::getInstance()->setPageTitle($pageTitle);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
