@@ -50,12 +50,10 @@ abstract class CorePage implements Page
    */
   public function __construct()
   {
-    $abc = Abc::getInstance();
-
-    $this->cmpId = $abc->getCmpId();
-    $this->proId = $abc->getProId();
-    $this->usrId = $abc->getUsrId();
-    $this->lanId = $abc->getLanId();
+    $this->cmpId = Abc::$session->getCmpId();
+    $this->proId = Abc::$session->getProId();
+    $this->usrId = Abc::$session->getUsrId();
+    $this->lanId = Abc::$session->getLanId();
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -337,7 +335,7 @@ abstract class CorePage implements Page
    */
   protected function echoPageLeader()
   {
-    $lan_code = Abc::getInstance()->getLanCode();
+    $lan_code = Abc::$session->getLanCode();
     echo '<!DOCTYPE html>';
     echo '<html xmlns="http://www.w3.org/1999/xhtml"', Html::generateAttribute('xml:lang', $lan_code),
     Html::generateAttribute('lang', $lan_code), '>';
