@@ -335,10 +335,11 @@ abstract class CorePage implements Page
    */
   protected function echoPageLeader()
   {
-    $lan_code = Abc::$session->getLanCode();
     echo '<!DOCTYPE html>';
-    echo '<html xmlns="http://www.w3.org/1999/xhtml"', Html::generateAttribute('xml:lang', $lan_code),
-    Html::generateAttribute('lang', $lan_code), '>';
+    echo Html::generateTag('html',
+                           ['xmlns'    => 'http://www.w3.org/1999/xhtml',
+                            'xml:lang' => Abc::$babel->getCode(),
+                            'lang'     => Abc::$babel->getCode()]);
     echo '<head>';
 
     // Echo the meta tags.
