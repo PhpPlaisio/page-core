@@ -1,10 +1,10 @@
 {
   "name": "setbased/abc-page-core",
-  "description": "ABC Framework: Core Page",
+  "description": "ABC-Framework: Core Page",
   "keywords": [
-    "framework",
-    "core",
-    "page"
+    "ABC-Framework",
+    "Core",
+    "Page"
   ],
   "type": "library",
   "license": "MIT",
