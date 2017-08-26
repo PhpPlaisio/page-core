@@ -296,17 +296,6 @@ abstract class CorePage implements Page
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Must be implemented in child classes to echo the actual page content, i.e. the inner HTML of the body tag.
-   *
-   * @return void
-   *
-   * @api
-   * @since 1.0.0
-   */
-  abstract public function echoPage();
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
    * If this page can be requested via multiple URI's and one URI is preferred this method must be overridden to return
    * the preferred URI of this page.
    *
@@ -364,28 +353,6 @@ abstract class CorePage implements Page
     Abc::$assets->echoJavaScript();
 
     echo '</body></html>';
-  }
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * {@deprecated}
-   *
-   * @return int
-   */
-  protected function getPagIdOrg()
-  {
-    return Abc::getInstance()->getPagIdOrg();
-  }
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * {@deprecated}
-   *
-   * @return string
-   */
-  protected function getPtbId()
-  {
-    return Abc::getInstance()->getPtbId();
   }
 
   //--------------------------------------------------------------------------------------------------------------------
