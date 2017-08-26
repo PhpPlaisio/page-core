@@ -320,6 +320,15 @@ abstract class CorePage implements Page
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
+   * By default the response to an XMLHttpRequest equals to a normal HTTP request.
+   */
+  public function echoXhrResponse()
+  {
+    $this->echoPage();
+  }
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
    * Echos the XHTML document leader, i.e. the start html tag, the head element, and start body tag.
    */
   protected function echoPageLeader()
