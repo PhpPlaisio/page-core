@@ -3,7 +3,7 @@
 namespace SetBased\Abc\Page;
 
 use SetBased\Abc\Abc;
-use SetBased\Abc\Error\InvalidUrlException;
+use SetBased\Abc\Exception\InvalidUrlException;
 use SetBased\Abc\Helper\Html;
 use SetBased\Abc\Helper\Url;
 

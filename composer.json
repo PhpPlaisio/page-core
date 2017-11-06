@@ -10,7 +10,8 @@
   "license": "MIT",
   "require": {
     "php": ">=7.0.0",
-    "setbased/abc": "^0.10.5",
+    "setbased/abc": "^0.10.18",
+    "setbased/abc-exception": "^1.0.0",
     "setbased/abc-page": "^0.9.1"
   },
   "require-dev": {
@@ -24,10 +25,10 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "SetBased\\Abc\\Page\\Test\\": "test"
+      "SetBased\\Abc\\Page\\Test\\": "test/"
     }
   },
   "config": {
-    "bin-dir": "bin"
+    "bin-dir": "bin/"
   }
 }
