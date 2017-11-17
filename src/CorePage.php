@@ -50,10 +50,10 @@ abstract class CorePage implements Page
    */
   public function __construct()
   {
-    $this->cmpId = Abc::$session->getCmpId();
+    $this->cmpId = Abc::$companyResolver->getCmpId();
     $this->proId = Abc::$session->getProId();
     $this->usrId = Abc::$session->getUsrId();
-    $this->lanId = Abc::$session->getLanId();
+    $this->lanId = Abc::$babel->getLanId();
   }
 
   //--------------------------------------------------------------------------------------------------------------------

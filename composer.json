@@ -10,8 +10,9 @@
   "license": "MIT",
   "require": {
     "php": ">=7.0.0",
-    "setbased/abc": "^0.10.18",
+    "setbased/abc": "^0.10.21",
     "setbased/abc-exception": "^1.0.0",
+    "setbased/abc-html": "^1.1.0",
     "setbased/abc-page": "^0.9.1"
   },
   "require-dev": {
