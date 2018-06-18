@@ -181,10 +181,10 @@ abstract class CorePage implements Page
    * <li>an empty string otherwise.
    * <ul>
    *
-   * @param string $name    The name of the boolean CGI variable.
-   * @param ?bool  $value   The value of the CGI variable.
-   * @param bool   $trinary If true trinary (a.k.a  three-valued) logic will be applied. Otherwise, bivalent logic will
-   *                        be applied.
+   * @param string    $name    The name of the boolean CGI variable.
+   * @param bool|null $value   The value of the CGI variable.
+   * @param bool      $trinary If true trinary (a.k.a  three-valued) logic will be applied. Otherwise, bivalent logic
+   *                           will be applied.
    *
    * @return string
    *
