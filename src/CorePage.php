@@ -1,5 +1,5 @@
 <?php
-//----------------------------------------------------------------------------------------------------------------------
+
 namespace SetBased\Abc\Page;
 
 use SetBased\Abc\Abc;
@@ -42,6 +42,7 @@ abstract class CorePage implements Page
   protected $usrId;
 
   //--------------------------------------------------------------------------------------------------------------------
+
   /**
    * Object constructor.
    *
@@ -81,7 +82,7 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  public static function getCgiBool($name, $trinary = false)
+  public static function getCgiBool(string $name, bool $trinary = false): ?bool
   {
     if (isset($_GET[$name]))
     {
@@ -104,7 +105,7 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  public static function getCgiId($name, $label, $default = null)
+  public static function getCgiId(string $name, string $label, $default = null): ?int
   {
     if (isset($_GET[$name]))
     {
@@ -133,7 +134,7 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  public static function getCgiUrl($name, $default = null, $forceRelative = true)
+  public static function getCgiUrl(string $name, ?string $default = null, bool $forceRelative = true): ?string
   {
     $url = (isset($_GET[$name])) ? $_GET[$name] : $default;
 
@@ -159,7 +160,7 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  public static function getCgiVar($name, $default = null)
+  public static function getCgiVar(string $name, ?string $default = null): ?string
   {
     return $_GET[$name] ?? $default;
   }
@@ -181,7 +182,7 @@ abstract class CorePage implements Page
    * <ul>
    *
    * @param string $name    The name of the boolean CGI variable.
-   * @param mixed  $value   The value of the CGI variable. Only and only a nonempty value evaluates to true.
+   * @param ?bool  $value   The value of the CGI variable.
    * @param bool   $trinary If true trinary (a.k.a  three-valued) logic will be applied. Otherwise, bivalent logic will
    *                        be applied.
    *
@@ -190,7 +191,7 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  public static function putCgiBool($name, $value, $trinary = false)
+  public static function putCgiBool(string $name, ?bool $value, bool $trinary = false): string
   {
     if (!empty($value))
     {
@@ -210,7 +211,7 @@ abstract class CorePage implements Page
    * Returns a string with holding a CGI variable that can be used as a part of a URL.
    *
    * @param string      $name  The name of the CGI variable.
-   * @param mixed       $value The value (must be a scalar) of the CGI variable.
+   * @param int|null    $value The value of the CGI variable.
    * @param string|null $label The alias for the column holding database ID.
    *
    * @return string
@@ -218,7 +219,7 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  public static function putCgiId($name, $value, $label)
+  public static function putCgiId(string $name, ?int $value, string $label): string
   {
     if ($value!==null)
     {
@@ -237,7 +238,7 @@ abstract class CorePage implements Page
    *
    * @return string
    */
-  public static function putCgiSlugName($string, $extension = '.html')
+  public static function putCgiSlugName(string $string, string $extension = '.html'): string
   {
     $slug = Html::txt2Slug($string);
 
@@ -258,7 +259,7 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  public static function putCgiUrl($name, $value)
+  public static function putCgiUrl(string $name, ?string $value): string
   {
     return self::putCgiVar($name, $value);
   }
@@ -267,15 +268,15 @@ abstract class CorePage implements Page
   /**
    * Returns a string with holding a CGI variable that can be used as a part of a URL.
    *
-   * @param string $name  The name of the CGI variable.
-   * @param mixed  $value The value (must be a scalar) of the CGI variable.
+   * @param string      $name  The name of the CGI variable.
+   * @param string|null $value The value of the CGI variable.
    *
    * @return string
    *
    * @api
    * @since 1.0.0
    */
-  public static function putCgiVar($name, $value)
+  public static function putCgiVar(string $name, ?string $value): string
   {
     return ($value!==null) ? '/'.$name.'/'.urlencode($value) : '';
   }
@@ -289,9 +290,18 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  public function checkAuthorization()
+  public function checkAuthorization(): void
   {
     // Nothing to do.
+  }
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
+   * By default the response to an XMLHttpRequest equals to a normal HTTP request.
+   */
+  public function echoXhrResponse(): void
+  {
+    $this->echoPage();
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -313,25 +323,16 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  public function getPreferredUri()
+  public function getPreferredUri(): ?string
   {
     return null;
   }
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * By default the response to an XMLHttpRequest equals to a normal HTTP request.
-   */
-  public function echoXhrResponse()
-  {
-    $this->echoPage();
-  }
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
    * Echos the XHTML document leader, i.e. the start html tag, the head element, and start body tag.
    */
-  protected function echoPageLeader()
+  protected function echoPageLeader(): void
   {
     echo '<!DOCTYPE html>';
     echo Html::generateTag('html',
@@ -357,7 +358,7 @@ abstract class CorePage implements Page
    * Echos the XHTML document trailer, i.e. the end body and html tags, including the JavaScript code that will be
    * executed using RequireJS.
    */
-  protected function echoPageTrailer()
+  protected function echoPageTrailer(): void
   {
     Abc::$assets->echoJavaScript();
 

@@ -210,9 +210,6 @@ class CorePageTest extends TestCase
     $part = CorePage::putCgiBool('foo', 'hello');
     $this->assertEquals('/foo/1', $part, 'test with hello');
 
-    $part = CorePage::putCgiBool('foo', ['bar']);
-    $this->assertEquals('/foo/1', $part, 'test with array');
-
     // Tests for false.
     $part = CorePage::putCgiBool('foo', false);
     $this->assertSame('', $part);
@@ -221,9 +218,6 @@ class CorePageTest extends TestCase
     $this->assertSame('', $part);
 
     $part = CorePage::putCgiBool('foo', '');
-    $this->assertSame('', $part);
-
-    $part = CorePage::putCgiBool('foo', []);
     $this->assertSame('', $part);
   }
 
@@ -240,17 +234,11 @@ class CorePageTest extends TestCase
     $part = CorePage::putCgiBool('foo', 'hello', true);
     $this->assertEquals('/foo/1', $part);
 
-    $part = CorePage::putCgiBool('foo', ['bar'], true);
-    $this->assertEquals('/foo/1', $part);
-
     // Tests for false.
     $part = CorePage::putCgiBool('foo', false, true);
     $this->assertSame('/foo/0', $part);
 
     $part = CorePage::putCgiBool('foo', '', true);
-    $this->assertSame('/foo/0', $part);
-
-    $part = CorePage::putCgiBool('foo', [], true);
     $this->assertSame('/foo/0', $part);
 
     // Tests for null.
