@@ -11,7 +11,6 @@
   "require": {
     "php": ">=7.1.0",
     "setbased/abc": "0.10.48",
-    "setbased/abc-exception": "^1.0.0",
     "setbased/abc-page": "^1.0.0"
   },
   "require-dev": {
