@@ -1,9 +1,9 @@
 <?php
+declare(strict_types=1);
 
 namespace SetBased\Abc\Page;
 
 use SetBased\Abc\Abc;
-use SetBased\Abc\Helper\Html;
 
 /**
  * Abstract parent class for all pages.
@@ -40,7 +40,6 @@ abstract class CorePage implements Page
   protected $usrId;
 
   //--------------------------------------------------------------------------------------------------------------------
-
   /**
    * Object constructor.
    *
@@ -71,15 +70,6 @@ abstract class CorePage implements Page
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * By default the response to an XMLHttpRequest equals to a normal HTTP request.
-   */
-  public function echoXhrResponse(): void
-  {
-    $this->echoPage();
-  }
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
    * If this page can be requested via multiple URI's and one URI is preferred this method must be overridden to return
    * the preferred URI of this page.
    *
@@ -100,43 +90,6 @@ abstract class CorePage implements Page
   public function getPreferredUri(): ?string
   {
     return null;
-  }
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * Echos the XHTML document leader, i.e. the start html tag, the head element, and start body tag.
-   */
-  protected function echoPageLeader(): void
-  {
-    echo '<!DOCTYPE html>';
-    echo Html::generateTag('html',
-                           ['xmlns'    => 'http://www.w3.org/1999/xhtml',
-                            'xml:lang' => Abc::$babel->getCode(),
-                            'lang'     => Abc::$babel->getCode()]);
-    echo '<head>';
-
-    // Echo the meta tags.
-    Abc::$assets->echoMetaTags();
-
-    // Echo the title of the XHTML document.
-    Abc::$assets->echoPageTitle();
-
-    // Echo style sheets (if any).
-    Abc::$assets->echoCascadingStyleSheets();
-
-    echo '</head><body>';
-  }
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * Echos the XHTML document trailer, i.e. the end body and html tags, including the JavaScript code that will be
-   * executed using RequireJS.
-   */
-  protected function echoPageTrailer(): void
-  {
-    Abc::$assets->echoJavaScript();
-
-    echo '</body></html>';
   }
 
   //--------------------------------------------------------------------------------------------------------------------
