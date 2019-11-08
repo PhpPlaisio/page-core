@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace SetBased\Abc\Page;
 
 use SetBased\Abc\Abc;
+use SetBased\Abc\Response\Response;
 
 /**
  * Abstract parent class for all pages.
@@ -15,6 +16,9 @@ abstract class CorePage implements Page
    * The ID of the company of the page requester.
    *
    * @var int
+   *
+   * @api
+   * @since 1.0.0
    */
   protected $cmpId;
 
@@ -22,6 +26,9 @@ abstract class CorePage implements Page
    * The preferred language (lan_id) of the page requester.
    *
    * @var int
+   *
+   * @api
+   * @since 1.0.0
    */
   protected $lanId;
 
@@ -29,6 +36,9 @@ abstract class CorePage implements Page
    * The profile ID (pro_id) of the page requestor.
    *
    * @var int
+   *
+   * @api
+   * @since 1.0.0
    */
   protected $proId;
 
@@ -36,8 +46,21 @@ abstract class CorePage implements Page
    * The user ID (usr_id) of the page requestor.
    *
    * @var int
+   *
+   * @api
+   * @since 1.0.0
    */
   protected $usrId;
+
+  /**
+   * The response object.
+   *
+   * @var Response|null
+   *
+   * @api
+   * @since 1.0.0
+   */
+  protected $response;
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
