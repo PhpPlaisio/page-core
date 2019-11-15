@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace SetBased\Abc\Page;
+namespace Plaisio\Page;
 
-use SetBased\Abc\Abc;
-use SetBased\Abc\Response\Response;
+use Plaisio\Kernel\Nub;
+use Plaisio\Response\Response;
 
 /**
  * Abstract parent class for all pages.
@@ -43,16 +43,6 @@ abstract class CorePage implements Page
   protected $proId;
 
   /**
-   * The user ID (usr_id) of the page requestor.
-   *
-   * @var int
-   *
-   * @api
-   * @since 1.0.0
-   */
-  protected $usrId;
-
-  /**
    * The response object.
    *
    * @var Response|null
@@ -61,6 +51,16 @@ abstract class CorePage implements Page
    * @since 1.0.0
    */
   protected $response;
+
+  /**
+   * The user ID (usr_id) of the page requestor.
+   *
+   * @var int
+   *
+   * @api
+   * @since 1.0.0
+   */
+  protected $usrId;
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
@@ -71,10 +71,10 @@ abstract class CorePage implements Page
    */
   public function __construct()
   {
-    $this->cmpId = Abc::$companyResolver->getCmpId();
-    $this->proId = Abc::$session->getProId();
-    $this->usrId = Abc::$session->getUsrId();
-    $this->lanId = Abc::$babel->getLanId();
+    $this->cmpId = Nub::$companyResolver->getCmpId();
+    $this->proId = Nub::$session->getProId();
+    $this->usrId = Nub::$session->getUsrId();
+    $this->lanId = Nub::$babel->getLanId();
   }
 
   //--------------------------------------------------------------------------------------------------------------------

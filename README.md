@@ -1,4 +1,4 @@
-# ABC-Framework: Core Page
+# PhpPlaisio: Core Page
 
 <table>
 <thead>
@@ -13,20 +13,20 @@
 <tbody>
 <tr>
 <td>
-<a href="https://gitter.im/SetBased/php-abc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge"><img src="https://badges.gitter.im/SetBased/php-abc.svg" alt="Gitter"/></a>
+<a href="https://gitter.im/PhpPlaisio/PhpPlaisio"><img src="https://badges.gitter.im/PhpPlaisio/PhpPlaisio.svg" alt="Gitter"/></a>
 </td>
 <td>
-<a href="https://packagist.org/packages/setbased/abc-page-core"><img src="https://poser.pugx.org/setbased/abc-page-core/license" alt="License"/></a>
+<a href="https://packagist.org/packages/plaisio/page-core"><img src="https://poser.pugx.org/plaisio/page-core/license" alt="License"/></a>
 </td>
 <td>
-<a href="https://packagist.org/packages/setbased/abc-page-core"><img src="https://poser.pugx.org/setbased/abc-page-core/v/stable" alt="Latest Stable Version"/></a>
+<a href="https://packagist.org/packages/plaisio/page-core"><img src="https://poser.pugx.org/plaisio/page-core/v/stable" alt="Latest Stable Version"/></a>
 </td>
 <td>
-<a href="https://travis-ci.org/SetBased/php-abc-page-core"><img src="https://travis-ci.org/SetBased/php-abc-page-core.svg?branch=master" alt="Build Status"/></a><br/>
-<a href="https://scrutinizer-ci.com/g/SetBased/php-abc-page-core/?branch=master"><img src="https://scrutinizer-ci.com/g/SetBased/php-abc-page-core/badges/coverage.png?b=master" alt="Code Coverage"/></a>
+<a href="https://travis-ci.org/PhpPlaisio/page-core"><img src="https://travis-ci.org/PhpPlaisio/page-core.svg?branch=master" alt="Build Status"/></a><br/>
+<a href="https://scrutinizer-ci.com/g/PhpPlaisio/page-core/?branch=master"><img src="https://scrutinizer-ci.com/g/PhpPlaisio/page-core/badges/coverage.png?b=master" alt="Code Coverage"/></a>
 </td>
 <td>
-<a href="https://scrutinizer-ci.com/g/SetBased/php-abc-page-core/?branch=master"><img src="https://scrutinizer-ci.com/g/SetBased/php-abc-page-core/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"/></a>
+<a href="https://scrutinizer-ci.com/g/PhpPlaisio/page-core/?branch=master"><img src="https://scrutinizer-ci.com/g/PhpPlaisio/page-core/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"/></a>
 </td>
 </tr>
 </tbody>
