@@ -10,7 +10,7 @@
   "require": {
     "php": ">=7.1.0",
     "plaisio/kernel": "^1.0.0",
-    "plaisio/page": "^2.0.0",
+    "plaisio/page": "^1.0.0",
     "plaisio/request": "^0.10.0"
   },
   "require-dev": {
