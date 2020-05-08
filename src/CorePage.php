@@ -71,10 +71,10 @@ abstract class CorePage implements Page
    */
   public function __construct()
   {
-    $this->cmpId = Nub::$companyResolver->getCmpId();
-    $this->proId = Nub::$session->getProId();
-    $this->usrId = Nub::$session->getUsrId();
-    $this->lanId = Nub::$babel->getLanId();
+    $this->cmpId = Nub::$nub->companyResolver->getCmpId();
+    $this->proId = Nub::$nub->session->getProId();
+    $this->usrId = Nub::$nub->session->getUsrId();
+    $this->lanId = Nub::$nub->babel->getLanId();
   }
 
   //--------------------------------------------------------------------------------------------------------------------
