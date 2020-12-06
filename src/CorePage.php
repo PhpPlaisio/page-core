@@ -20,7 +20,7 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  protected $cmpId;
+  protected int $cmpId;
 
   /**
    * The preferred language (lan_id) of the page requester.
@@ -30,7 +30,7 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  protected $lanId;
+  protected int $lanId;
 
   /**
    * The profile ID (pro_id) of the page requestor.
@@ -40,7 +40,7 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  protected $proId;
+  protected int $proId;
 
   /**
    * The response object.
@@ -50,7 +50,7 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  protected $response;
+  protected int $response;
 
   /**
    * The user ID (usr_id) of the page requestor.
@@ -60,7 +60,7 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  protected $usrId;
+  protected int $usrId;
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
