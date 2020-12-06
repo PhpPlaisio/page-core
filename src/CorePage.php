@@ -50,7 +50,7 @@ abstract class CorePage implements Page
    * @api
    * @since 1.0.0
    */
-  protected int $response;
+  protected ?Response $response;
 
   /**
    * The user ID (usr_id) of the page requestor.
