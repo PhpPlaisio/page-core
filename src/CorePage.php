@@ -81,7 +81,7 @@ abstract class CorePage implements Page
   /**
    * If a page needs additional and page specific authorization and/or security checks this method must be overridden.
    *
-   * When a HTTP request must be denied a NotAuthorizedException must be raised.
+   * When an HTTP request must be denied a NotAuthorizedException must be raised.
    *
    * @api
    * @since 1.0.0
@@ -96,7 +96,7 @@ abstract class CorePage implements Page
    * If this page can be requested via multiple URI's and one URI is preferred this method must be overridden to return
    * the preferred URI of this page.
    *
-   * Typically this method will be used when the URL contains some ID and an additional title.
+   * Typically, this method will be used when the URL contains some ID and an additional title.
    * Example:
    * Initially a page with an article about a book is created with title "Harry Potter and the Sorcerer's Stone" and the
    * URI is /book/123456/Harry_Potter_and_the_Sorcerer's_Stone.html. After this article has been edited the URI is
