@@ -42,7 +42,6 @@
         <exec executable="bin/phpunit" passthru="true" checkreturn="true"/>
     </target>
 
-    <target name="build">
-        <echo message=""/>
+    <target name="build" depends="update,unit">
     </target>
 </project>
